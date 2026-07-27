@@ -1,0 +1,20 @@
+Cybersecurity Log Analysis Report
+Barbara Adkins
+Jr. Analyst
+================================
+
+First line of the log file:
+2026-03-17T23:13:01Z	AUTH_SUCCESS	user=mtampling0	ip=10.93.238.87	message=Login successful
+
+=======================
+
+Total numbers by category:
+All log entries: 1234
+Failed authentication attempts: 169
+Privileged access attempts: 95
+
+=======================
+
+Suspicious User Login Patterns:
+
+

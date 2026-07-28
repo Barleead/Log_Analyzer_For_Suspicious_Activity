@@ -23,8 +23,8 @@ first_line, total_count, failed_count, privileged_count = count_log_events()
 
 print("First line of the log file:")
 print(first_line.strip())
-print("================================")
-
+print("")
+print("==============================")
 print("Total numbers by category:" + "\n")
 print("Total log entries:", total_count)
 print("Failed authentication attempts:", failed_count)
@@ -41,36 +41,55 @@ def parse_log_entry(line):
 
     return {
         "timestamp": parts[0],
-        "user": parts[1],
-        "event": parts[2],
-        "ip": parts[3],
-        "message": parts[4]
+        "event": parts[1],
+        "user": parts[2].replace("user=", ""),
+        "ip": parts[3].replace("ip=", ""),
+        "message": parts[4].replace("message=", "")
     }
 
 
 def failed_login_patterns():
     failures_by_user = {}
+    failures_by_ip = {}
 
     with open("sample_log.txt", "r", encoding="utf-8") as file:
         for line in file:
-            if "AUTH_FAIL" in line.upper():
-                user = line.split("\t")[2]
+            entry = parse_log_entry(line)
+            if entry is None:
+                continue
+
+            if entry["event"] == "AUTH_FAIL":
+                user = entry["user"]
+                ip = entry["ip"]
+
                 if user not in failures_by_user:
                     failures_by_user[user] = 1
                 else:
                     failures_by_user[user] += 1
 
+                if ip not in failures_by_ip:
+                    failures_by_ip[ip] = 1
+                else:
+                    failures_by_ip[ip] += 1
+
     print("Suspicious User Login Patterns:")
+
     for user, count in failures_by_user.items():
         if count >= 5:
             print(
                 f"User '{user}' had {count} failed logins. These should be investigated.")
 
-    return failures_by_user
-    # return failures
+    print(" ")
+
+    for ip, count in failures_by_ip.items():
+        if count >= 3:
+            print(
+                f"IP adddress '{ip}' is associated with {count} failed logins. ")
+
+    return failures_by_user, failures_by_ip
 
 
-user_ip_list = failed_login_patterns()
+user_failures, ip_failures = failed_login_patterns()
 
 
 # in summary report, user and a list of IP addresses used for the failed attempts.
@@ -93,6 +112,7 @@ def main():
 # this is my code for Findings.txt file output
 
 
+print(__file__)
 with open("Findings.txt", "w", encoding="utf-8") as out:
     out.write("Cybersecurity Log Analysis Report\n")
     out.write("Barbara Adkins\n")
@@ -107,7 +127,7 @@ with open("Findings.txt", "w", encoding="utf-8") as out:
     out.write(f"Privileged access attempts: {privileged_count}\n\n")
     out.write("=======================\n\n")
     out.write("Suspicious User Login Patterns:\n\n")
-    for user, count in user_ip_list.items():
+    for user, count in user_failures.items():
         if count >= 5:
             out.write(
                 f"User '{user}' had {count} failed logins. These should be investigated.\n"

@@ -1,10 +1,7 @@
 """Reading sample log parsing, spliting"""
 
 
-from unittest import result
-
-
-def detect_failed_privileged_totals():
+def count_log_events():
     failed_count = 0
     total_count = 0
     privileged_count = 0
@@ -21,20 +18,19 @@ def detect_failed_privileged_totals():
 
     return first_line, total_count, failed_count, privileged_count
 
-# Then to analyze the data for patterns, trends, and store them into a
-# document for analysis.  The document will be used to create a report for the client.
-# Below is some of the output code.
 
-
-first_line, total_count, failed_count, privileged_count = detect_failed_privileged_totals()
+first_line, total_count, failed_count, privileged_count = count_log_events()
 
 print("First line of the log file:")
 print(first_line.strip())
-print("=======================")
+print("================================")
 
+print("Total numbers by category:" + "\n")
 print("Total log entries:", total_count)
 print("Failed authentication attempts:", failed_count)
 print("Privileged access attempts:", privileged_count)
+print("=================================")
+print(" ")
 
 
 def parse_log_entry(line):
@@ -63,22 +59,23 @@ def failed_login_patterns():
                     failures_by_user[user] = 1
                 else:
                     failures_by_user[user] += 1
-    failures = ""
+
     print("Suspicious User Login Patterns:")
     for user, count in failures_by_user.items():
         if count >= 5:
             print(
-                f"User '{user}' had {count} failed logins. These should be investigated")
+                f"User '{user}' had {count} failed logins. These should be investigated.")
 
-    return failures
+    return failures_by_user
+    # return failures
 
 
-failed_login_patterns()
+user_ip_list = failed_login_patterns()
 
-#  usernames with multiple failed login attempts
+
 # in summary report, user and a list of IP addresses used for the failed attempts.
 #
-# print"User ____ has had ___- numbr of failed login attempts. Using IP addresses: ___, ___, ___, etc.  This is a pattern that should be investigated further.
+# Using IP addresses: ___, ___, ___, etc.  This is a pattern that should be investigated further.
 
 
 def detection_suspicious_ip_addresses(file):
@@ -88,12 +85,10 @@ def detection_suspicious_ip_addresses(file):
             suspicious_ips.add(entry["ip"])
     return suspicious_ips
 
-# in summary below "IP addresses ___ has been flagged as suspicious due to multiple failed login attempts.  This is a pattern that should be investigated further."
 
-
-# def main():
-#     # for now, the main function is empty, but it can be used to call other functions or implement additional logic in the future.
-#     pass
+def main():
+    # for now, the main function is empty, but it can be used to call other functions or implement additional logic in the future.
+    pass
 
 # this is my code for Findings.txt file output
 
@@ -111,8 +106,17 @@ with open("Findings.txt", "w", encoding="utf-8") as out:
     out.write(f"Failed authentication attempts: {failed_count}\n")
     out.write(f"Privileged access attempts: {privileged_count}\n\n")
     out.write("=======================\n\n")
-    out.write("Suspicious User Login Patterns:\n")
-    out.write(failed_login_patterns() + "\n\n")
+    out.write("Suspicious User Login Patterns:\n\n")
+    for user, count in user_ip_list.items():
+        if count >= 5:
+            out.write(
+                f"User '{user}' had {count} failed logins. These should be investigated.\n"
+            )
+    out.write("\n")
+    # out.write("=======================\n\n")
+    # out.write("Suspicious IP & user login patterns:\n")
+    # out.write(suspicious_ips() + "\n\n")
+    # out.write("====================================")
 
 # if main == "__main__":
 #     main()

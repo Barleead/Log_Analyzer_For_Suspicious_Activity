@@ -17,4 +17,9 @@ Privileged access attempts: 95
 
 Suspicious User Login Patterns:
 
+User 'user=root' had 20 failed logins. These should be investigated.
+User 'user=admin' had 23 failed logins. These should be investigated.
+User 'user=tbraxter' had 14 failed logins. These should be investigated.
+User 'user=jtoll' had 19 failed logins. These should be investigated.
+User 'user=jdoe' had 13 failed logins. These should be investigated.
 

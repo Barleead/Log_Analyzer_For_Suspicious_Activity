@@ -1,0 +1,11 @@
+First line of the log file:
+2026-03-17T23:13:01Z    AUTH_SUCCESS    user=mtampling0 ip=10.93.238.87 message=Login successful
+=======================
+Total log entries: 1234
+Failed authentication attempts: 169
+Privileged access attempts: 95
+Suspicious User Login Patterns:
+User 'user=root' had 20 failed logins. These should be investigated.
+User 'user=admin' had 23 failed logins. These should be investigated.
+User 'user=tbraxter' had 14 failed logins. These should be investigated.User 'user=jtoll' had 19 failed logins. These should be investigated.
+User 'user=jdoe' had 13 failed logins. These should be investigated.

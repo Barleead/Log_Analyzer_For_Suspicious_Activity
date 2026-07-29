@@ -128,13 +128,15 @@ def detailed_suspicious_entries():
 
     for user, count in user_permission_changes.items():
         user_ips = user_permission_ips[user]
-        ip_str = ",".join(user_ips)
+        ip_str = ", ".join(user_ips)
 
         print(
-            f"User '{user}' had {count} PRIV_CHANGE events. The IP addresses were: {ip_str} .")
+            f"User '{user}' had {count} PRIV_CHANGE events. The IP addresses used: {ip_str}.")
+
+    return user_permission_changes, user_permission_ips,
 
 
-detailed_suspicious_entries()
+user_changes, user_ips = detailed_suspicious_entries()
 
 
 def main():
@@ -171,7 +173,11 @@ with open("Findings.txt", "w", encoding="utf-8") as out:
             out.write(
                 f"IP address '{ip} was linked to {count} failed login attempts. May need to investigate and block IPs if needed. \n")
     out.write("=======================\n\n")
-    out.write
+    out.write("Privilege Change Events \n\n")
+    out.write("=======================\n\n")
+    for user, count in user_changes.items():
+        out.write(
+            f"User {user} had {count} Privilege Change events.  The ips that are associated with the event are: {user_ips[user]}." + "\n")
 
 # if main == "__main__":
 #     main()

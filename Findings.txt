@@ -35,3 +35,80 @@ IP address '192.168.1.17 was linked to 28 failed login attempts. May need to inv
 IP address '51.185.130.223 was linked to 80 failed login attempts. May need to investigate and block IPs if needed. 
 =======================
 
+Privilege Change Events 
+
+=======================
+
+User root had 22 PRIV_CHANGE events.  The ips that correlate the event are: {'57.93.189.70', '93.1.127.33', '98.241.7.192', '141.242.251.142', '51.167.98.192', '125.232.21.10', '129.16.101.108', '232.158.179.28', '162.211.191.140', '51.91.61.140', '215.111.196.43', '220.112.12.221', '135.103.53.111', '53.248.13.123', '27.214.198.117', '131.143.28.72', '114.162.125.102', '235.240.89.72', '32.27.135.194', '192.63.184.248', '94.234.64.142'}.
+User hmulrooney1 had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'194.77.213.18'}.
+User hgaineofengland3 had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'84.201.139.199'}.
+User cpittam5 had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'79.68.37.38'}.
+User bphayre6 had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'195.195.1.138'}.
+User mabell8 had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'187.189.169.208'}.
+User nphilippea had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'71.121.191.107'}.
+User jwadlowb had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'195.164.21.242'}.
+User rklaaasenc had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'238.213.65.94'}.
+User govelld had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'17.208.115.147'}.
+User ealdritte had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'214.103.94.217'}.
+User lstainesf had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'206.28.51.8'}.
+User bbrunag had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'127.163.4.42'}.
+User radaminii had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'39.153.38.122'}.
+User hsicklingk had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'210.158.177.73'}.
+User eblindtl had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'155.248.115.177'}.
+User dmcblainm had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'136.228.120.55'}.
+User tlearmondn had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'38.76.148.24'}.
+User rvinto had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'223.245.96.110'}.
+User bmargramp had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'186.133.36.204'}.
+User bhearnesq had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'175.101.151.252'}.
+User jhewinsr had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'253.158.27.57'}.
+User kstreatfields had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'82.11.147.213'}.
+User lmacfaydent had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'63.78.204.129'}.
+User rrobinsonw had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'63.37.91.225'}.
+User dbeevis10 had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'99.4.203.185'}.
+User kwennam11 had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'161.4.56.8'}.
+User edymoke12 had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'95.48.83.200'}.
+User doliveras1n had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'194.187.18.112'}.
+User witzhaki1o had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'222.40.229.183'}.
+User blerhinan1p had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'106.71.242.1'}.
+User nfrankis1q had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'7.65.86.176'}.
+User cackroyd1r had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'191.177.215.207'}.
+User dmarquese1s had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'9.125.71.35'}.
+User rdybald1t had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'199.85.211.111'}.
+User rrolfo1u had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'206.110.221.158'}.
+User mshaxby1v had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'239.215.194.39'}.
+User jcruttenden1w had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'52.118.195.241'}.
+User hstuke1x had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'109.148.70.52'}.
+User gbarthelet1y had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'216.97.254.32'}.
+User rbradman1z had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'131.240.211.105'}.
+User gscotti20 had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'122.167.220.85'}.
+User mfairfoull21 had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'195.169.120.69'}.
+User cseawright22 had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'52.83.125.41'}.
+User sdeathe23 had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'136.52.247.41'}.
+User adeverson24 had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'37.245.29.204'}.
+User ppurver26 had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'232.89.201.111'}.
+User dmatisoff27 had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'48.62.183.191'}.
+User sbuckbee28 had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'19.87.183.229'}.
+User lgremane2a had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'168.122.146.184'}.
+User dblenkensop2b had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'220.10.116.198'}.
+User ssemens2c had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'106.73.155.132'}.
+User bmcniven2d had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'69.183.67.77'}.
+User alebrum2f had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'214.119.198.228'}.
+User cdrever2g had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'236.68.243.33'}.
+User cjumel2i had 2 PRIV_CHANGE events.  The ips that correlate the event are: {'133.49.133.245'}.
+User dlasslett2j had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'131.195.12.213'}.
+User lhouldey2k had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'42.137.188.195'}.
+User rshilvock2l had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'200.236.162.162'}.
+User fbasten2m had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'197.205.155.41'}.
+User lwickman2n had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'118.49.218.81'}.
+User jkairns2o had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'255.140.35.50'}.
+User mkibbee2q had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'234.32.53.24'}.
+User gpeete2s had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'142.219.254.61'}.
+User rdenyukin2t had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'80.123.211.206'}.
+User hhevner2u had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'116.179.99.94'}.
+User vhillen2v had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'45.2.44.27'}.
+User aorto2w had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'67.207.108.195'}.
+User ifairbank2x had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'83.217.213.248'}.
+User mknappen2z had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'173.25.107.246'}.
+User pbemwell30 had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'38.139.13.225'}.
+User dcandey33 had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'49.84.55.19'}.
+User evazquez35 had 1 PRIV_CHANGE events.  The ips that correlate the event are: {'10.0.2.87'}.

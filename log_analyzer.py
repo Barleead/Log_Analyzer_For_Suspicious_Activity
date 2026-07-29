@@ -53,8 +53,8 @@ def failed_login_patterns():
     failures_by_ip = {}
 
     with open("sample_log.txt", "r", encoding="utf-8") as file:
-        for line in file:
-            entry = parse_log_entry(line)
+        for entry in file:
+            entry = parse_log_entry(entry)
             if entry is None:
                 continue
 
@@ -93,13 +93,49 @@ def failed_login_patterns():
 
 user_failures, ip_failures = failed_login_patterns()
 
+print("")
+print("===============================" + "\n")
 
-def detection_suspicious_ip_addresses(file):
-    suspicious_ips = set()
-    for entry in file:
-        if entry["event"] == "AUTH_FAIL":
-            suspicious_ips.add(entry["ip"])
-    return suspicious_ips
+
+def privilege_change_log_entries():
+    user_permission_changes = {}
+    user_permission_ips = {}
+
+    with open("sample_log.txt", "r", encoding="utf-8") as file:
+        for line in file:
+            entry = parse_log_entry(line)
+
+            if entry is None:
+                continue
+
+            if entry["event"] == "PRIV_CHANGE":
+                user = entry["user"]
+                ip = entry["ip"]
+
+                if user not in user_permission_changes:
+                    user_permission_changes[user] = 1
+
+                else:
+                    user_permission_changes[user] += 1
+
+                if user not in user_permission_ips:
+                    user_permission_ips[user] = {ip}
+
+                else:
+                    user_permission_ips[user].add(ip)
+
+    print("User Permission Changes: " + "\n")
+
+    for user, count in user_permission_changes.items():
+        user_ips = user_permission_ips[user]
+        ip_str = ",".join(user_ips)
+
+        print(
+            f"User '{user}' had {count} PRIV_CHANGE events. The IP addresses were: {ip_str} .")
+
+
+privilege_change_log_entries()
+
 
 
 def main():
@@ -135,7 +171,7 @@ with open("Findings.txt", "w", encoding="utf-8") as out:
         if count >= 5:
             out.write(
                 f"IP address '{ip} was linked to {count} failed login attempts. May need to investigate and block IPs if needed. \n")
-    out.write("====================================\n\n")
+    out.write("=======================\n\n")
     out.write
 
 # if main == "__main__":

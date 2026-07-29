@@ -21,16 +21,16 @@ def count_log_events():
 
 first_line, total_count, failed_count, privileged_count = count_log_events()
 
-print("First line of the log file:")
+print("Log File Verification:")
 print(first_line.strip())
 print("")
-print("==============================")
-print("Total numbers by category:" + "\n")
+print("==============================" + "\n")
+print("Summary of Key Statistics:" + "\n")
 print("Total log entries:", total_count)
 print("Failed authentication attempts:", failed_count)
 print("Privileged access attempts:", privileged_count)
-print("=================================")
-print(" ")
+print("")
+print("=============================" + "\n")
 
 
 def parse_log_entry(line):
@@ -53,8 +53,8 @@ def failed_login_patterns():
     failures_by_ip = {}
 
     with open("sample_log.txt", "r", encoding="utf-8") as file:
-        for line in file:
-            entry = parse_log_entry(line)
+        for entry in file:
+            entry = parse_log_entry(entry)
             if entry is None:
                 continue
 
@@ -73,13 +73,15 @@ def failed_login_patterns():
                     failures_by_ip[ip] += 1
 
     print("Suspicious User Login Patterns:")
+    print("")
 
     for user, count in failures_by_user.items():
         if count >= 5:
             print(
-                f"User '{user}' had {count} failed logins. These should be investigated.")
+                f"User '{user}' had {count} failed logins. These occurances should be investigated.")
 
     print(" ")
+    print("Suspicious IP activity \n")
 
     for ip, count in failures_by_ip.items():
         if count >= 3:
@@ -91,18 +93,48 @@ def failed_login_patterns():
 
 user_failures, ip_failures = failed_login_patterns()
 
-
-# in summary report, user and a list of IP addresses used for the failed attempts.
-#
-# Using IP addresses: ___, ___, ___, etc.  This is a pattern that should be investigated further.
+print("")
+print("===============================" + "\n")
 
 
-def detection_suspicious_ip_addresses(file):
-    suspicious_ips = set()
-    for entry in file:
-        if entry["event"] == "AUTH_FAIL":
-            suspicious_ips.add(entry["ip"])
-    return suspicious_ips
+def detailed_suspicious_entries():
+    user_permission_changes = {}
+    user_permission_ips = {}
+
+    with open("sample_log.txt", "r", encoding="utf-8") as file:
+        for line in file:
+            entry = parse_log_entry(line)
+
+            if entry is None:
+                continue
+
+            if entry["event"] == "PRIV_CHANGE":
+                user = entry["user"]
+                ip = entry["ip"]
+
+                if user not in user_permission_changes:
+                    user_permission_changes[user] = 1
+
+                else:
+                    user_permission_changes[user] += 1
+
+                if user not in user_permission_ips:
+                    user_permission_ips[user] = {ip}
+
+                else:
+                    user_permission_ips[user].add(ip)
+
+    print("User Permission Changes: " + "\n")
+
+    for user, count in user_permission_changes.items():
+        user_ips = user_permission_ips[user]
+        ip_str = ",".join(user_ips)
+
+        print(
+            f"User '{user}' had {count} PRIV_CHANGE events. The IP addresses were: {ip_str} .")
+
+
+detailed_suspicious_entries()
 
 
 def main():
@@ -112,31 +144,34 @@ def main():
 # this is my code for Findings.txt file output
 
 
-print(__file__)
 with open("Findings.txt", "w", encoding="utf-8") as out:
     out.write("Cybersecurity Log Analysis Report\n")
-    out.write("Barbara Adkins\n")
-    out.write("Jr. Analyst\n")
+    out.write("prepared by: Barbara Adkins\n")
+    out.write("Role: Jr. Security Analyst\n")
     out.write("================================\n\n")
-    out.write("First line of the log file:\n")
+    out.write("Log File Verification \n\n")
     out.write(first_line.strip() + "\n\n")
     out.write("=======================\n\n")
-    out.write("Total numbers by category:\n")
-    out.write(f"All log entries: {total_count}\n")
+    out.write("Summary of Key Statistics \n\n")
+    out.write(f"Total log entries: {total_count}\n")
     out.write(f"Failed authentication attempts: {failed_count}\n")
-    out.write(f"Privileged access attempts: {privileged_count}\n\n")
+    out.write(f"Privilege change events: {privileged_count}\n\n")
     out.write("=======================\n\n")
     out.write("Suspicious User Login Patterns:\n\n")
     for user, count in user_failures.items():
         if count >= 5:
             out.write(
-                f"User '{user}' had {count} failed logins. These should be investigated.\n"
+                f"User '{user}' had {count} failed login attempts. These occurances should be investigated.\n"
             )
     out.write("\n")
-    # out.write("=======================\n\n")
-    # out.write("Suspicious IP & user login patterns:\n")
-    # out.write(suspicious_ips() + "\n\n")
-    # out.write("====================================")
+    out.write("=======================\n\n")
+    out.write("Suspicious IP activity \n\n")
+    for ip, count in ip_failures.items():
+        if count >= 5:
+            out.write(
+                f"IP address '{ip} was linked to {count} failed login attempts. May need to investigate and block IPs if needed. \n")
+    out.write("=======================\n\n")
+    out.write
 
 # if main == "__main__":
 #     main()

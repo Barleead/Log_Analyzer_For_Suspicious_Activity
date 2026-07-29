@@ -1,7 +1,7 @@
 """Reading sample log parsing, spliting"""
 
 
-def detect_failed_privileged_totals():
+def count_log_events():
     failed_count = 0
     total_count = 0
     privileged_count = 0
@@ -18,20 +18,19 @@ def detect_failed_privileged_totals():
 
     return first_line, total_count, failed_count, privileged_count
 
-# Then to analyze the data for patterns, trends, and store them into a
-# document for analysis.  The document will be used to create a report for the client.
-# Below is some of the output code.
 
+first_line, total_count, failed_count, privileged_count = count_log_events()
 
-first_line, total_count, failed_count, privileged_count = detect_failed_privileged_totals()
-
-print("First line of the log file:")
+print("Log File Verification:")
 print(first_line.strip())
-print("=======================")
-
+print("")
+print("==============================" + "\n")
+print("Summary of Key Statistics:" + "\n")
 print("Total log entries:", total_count)
 print("Failed authentication attempts:", failed_count)
 print("Privileged access attempts:", privileged_count)
+print("")
+print("=============================" + "\n")
 
 
 def parse_log_entry(line):
@@ -40,46 +39,59 @@ def parse_log_entry(line):
     if len(parts) < 5:
         return None
 
-    timestamp = parts[0]
-    user = parts[1]
-    event = parts[2]
-    ip = parts[3]
-    message = parts[4]
-
     return {
-        "timestamp": timestamp,
-        "user": user,
-        "event": event,
-        "ip": ip,
-        "message": message
+        "timestamp": parts[0],
+        "event": parts[1],
+        "user": parts[2].replace("user=", ""),
+        "ip": parts[3].replace("ip=", ""),
+        "message": parts[4].replace("message=", "")
     }
 
 
 def failed_login_patterns():
+    failures_by_user = {}
+    failures_by_ip = {}
 
     with open("sample_log.txt", "r", encoding="utf-8") as file:
-        failed_logins = {}
         for line in file:
             entry = parse_log_entry(line)
-            if not entry:
+            if entry is None:
                 continue
-            if entry["event"] == AUTH_FAIL:
-                user = entry.get["user"]
-                ip = entry.get["ip"]
-            if user not in failed_logins:
-                failed_logins[user] = []
-            failed_logins[user].append(ip)
-        return failed_logins
 
-    failed_logins = failed_login_patterns()
+            if entry["event"] == "AUTH_FAIL":
+                user = entry["user"]
+                ip = entry["ip"]
 
-    for user, ips in failed_logins.items():
-        print(f"User {user} has had {len(ips)} failed login attempts.")
-        print(f"Using IP addresses: {ips}")
+                if user not in failures_by_user:
+                    failures_by_user[user] = 1
+                else:
+                    failures_by_user[user] += 1
 
-#  usernames with multiple failed login attempts
-# in summary report, user and a list of IP addresses used for the failed attempts.
-# print " user ____ has had ___- numbr of failed login attempts. Using IP addresses: ___, ___, ___, etc.  This is a pattern that should be investigated further.
+                if ip not in failures_by_ip:
+                    failures_by_ip[ip] = 1
+                else:
+                    failures_by_ip[ip] += 1
+
+    print("Suspicious User Login Patterns:")
+    print("")
+
+    for user, count in failures_by_user.items():
+        if count >= 5:
+            print(
+                f"User '{user}' had {count} failed logins. These occurances should be investigated.")
+
+    print(" ")
+    print("Suspicious IP activity \n")
+
+    for ip, count in failures_by_ip.items():
+        if count >= 3:
+            print(
+                f"IP adddress '{ip}' is associated with {count} failed logins. ")
+
+    return failures_by_user, failures_by_ip
+
+
+user_failures, ip_failures = failed_login_patterns()
 
 
 def detection_suspicious_ip_addresses(file):
@@ -88,8 +100,6 @@ def detection_suspicious_ip_addresses(file):
         if entry["event"] == "AUTH_FAIL":
             suspicious_ips.add(entry["ip"])
     return suspicious_ips
-
-# in summary below "IP addresses ___ has been flagged as suspicious due to multiple failed login attempts.  This is a pattern that should be investigated further."
 
 
 def main():
@@ -101,20 +111,32 @@ def main():
 
 with open("Findings.txt", "w", encoding="utf-8") as out:
     out.write("Cybersecurity Log Analysis Report\n")
-    out.write("Barbara Adkins\n")
-    out.write("Jr. Analyst\n")
+    out.write("prepared by: Barbara Adkins\n")
+    out.write("Role: Jr. Security Analyst\n")
     out.write("================================\n\n")
-    out.write("First line of the log file:\n")
+    out.write("Log File Verification \n\n")
     out.write(first_line.strip() + "\n\n")
     out.write("=======================\n\n")
-    out.write("Total numbers by category:\n")
-    out.write(f"All log entries: {total_count}\n")
+    out.write("Summary of Key Statistics \n\n")
+    out.write(f"Total log entries: {total_count}\n")
     out.write(f"Failed authentication attempts: {failed_count}\n")
-    out.write(f"Privileged access attempts: {privileged_count}\n\n")
+    out.write(f"Privilege change events: {privileged_count}\n\n")
     out.write("=======================\n\n")
-    out.write("Failures by User")
-    out.write(failed_login_patterns() + "\n\n")
+    out.write("Suspicious User Login Patterns:\n\n")
+    for user, count in user_failures.items():
+        if count >= 5:
+            out.write(
+                f"User '{user}' had {count} failed login attempts. These occurances should be investigated.\n"
+            )
+    out.write("\n")
     out.write("=======================\n\n")
+    out.write("Suspicious IP activity \n\n")
+    for ip, count in ip_failures.items():
+        if count >= 5:
+            out.write(
+                f"IP address '{ip} was linked to {count} failed login attempts. May need to investigate and block IPs if needed. \n")
+    out.write("====================================\n\n")
+    out.write
 
-if main == "__main__":
-    main()
+# if main == "__main__":
+#     main()

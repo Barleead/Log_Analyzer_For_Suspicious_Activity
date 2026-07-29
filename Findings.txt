@@ -1,25 +1,37 @@
 Cybersecurity Log Analysis Report
-Barbara Adkins
-Jr. Analyst
+prepared by: Barbara Adkins
+Role: Jr. Security Analyst
 ================================
 
-First line of the log file:
+Log File Verification 
+
 2026-03-17T23:13:01Z	AUTH_SUCCESS	user=mtampling0	ip=10.93.238.87	message=Login successful
 
 =======================
 
-Total numbers by category:
-All log entries: 1234
+Summary of Key Statistics 
+
+Total log entries: 1234
 Failed authentication attempts: 169
-Privileged access attempts: 95
+Privilege change events: 95
 
 =======================
 
 Suspicious User Login Patterns:
 
-User 'root' had 20 failed logins. These should be investigated.
-User 'admin' had 23 failed logins. These should be investigated.
-User 'tbraxter' had 14 failed logins. These should be investigated.
-User 'jtoll' had 19 failed logins. These should be investigated.
-User 'jdoe' had 13 failed logins. These should be investigated.
+User 'root' had 20 failed login attempts. These occurances should be investigated.
+User 'admin' had 23 failed login attempts. These occurances should be investigated.
+User 'tbraxter' had 14 failed login attempts. These occurances should be investigated.
+User 'jtoll' had 19 failed login attempts. These occurances should be investigated.
+User 'jdoe' had 13 failed login attempts. These occurances should be investigated.
+
+=======================
+
+Suspicious IP activity 
+
+IP address '192.168.1.15 was linked to 32 failed login attempts. May need to investigate and block IPs if needed. 
+IP address '10.0.2.87 was linked to 29 failed login attempts. May need to investigate and block IPs if needed. 
+IP address '192.168.1.17 was linked to 28 failed login attempts. May need to investigate and block IPs if needed. 
+IP address '51.185.130.223 was linked to 80 failed login attempts. May need to investigate and block IPs if needed. 
+=======================
 

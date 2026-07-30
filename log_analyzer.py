@@ -206,8 +206,7 @@ with open("Findings.txt", "w", encoding="utf-8") as out:
     out.write("Suspicious User Login Patterns:\n\n")
     for user, count in user_failures.items():
         if count >= 5:
-            out.write(
-                f"User '{user}' had {count} failed login attempts. These occurances should be investigated.\n"
+            out.write(f"User '{user}' had {count} failed login attempts. These occurances should be investigated.\n"
             )
     out.write("\n")
     out.write("=======================\n\n")

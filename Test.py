@@ -78,7 +78,8 @@ def failed_login_patterns():
     for user, count in failures_by_user.items():
         if count >= 5:
             print(
-                f"User '{user}' had {count} failed logins. These occurances should be investigated.")
+                f"User '{user}' had {count} failed login attempts. ")
+            print("An excessive number of failed login attempts may be an attempt at malicious activity and should be investigated further." + "\n")
 
     print(" ")
     print("Suspicious IP activity \n")
@@ -86,7 +87,9 @@ def failed_login_patterns():
     for ip, count in failures_by_ip.items():
         if count >= 3:
             print(
-                f"IP adddress '{ip}' is associated with {count} failed logins. ")
+                f"IP address '{ip}' is associated with {count} failed login attempts. ")
+            print(
+                "Repeated and excessive failed login attempts should be investigated further. \n\n ")
 
     return failures_by_user, failures_by_ip
 
@@ -184,8 +187,12 @@ auth_changes, auth_ips = authorization_failed_attempts_log()
 
 
 def main():
-    # for now, the main function is empty, but it can be used to call other functions or implement additional logic in the future.
-    pass
+    count_log_events()
+    parse_log_entry(line)
+    failed_login_patterns()
+    detailed_suspicious_entries()
+    authorization_failed_attempts_log()
+
 
 # this is my code for Findings.txt file output
 
@@ -207,15 +214,19 @@ with open("Findings.txt", "w", encoding="utf-8") as out:
     for user, count in user_failures.items():
         if count >= 5:
             out.write(
-                f"User '{user}' had {count} failed login attempts. These occurances should be investigated.\n"
-            )
-    out.write("\n")
+                f"User '{user}' had {count} failed login attempts. \n")
+            out.write(
+                "An excessive number of failed login attempts may be an attempt at malicious activity and should be investigated further. \n\n")
+
     out.write("=======================\n\n")
     out.write("Suspicious IP activity \n\n")
     for ip, count in ip_failures.items():
         if count >= 5:
             out.write(
-                f"IP address '{ip} was linked to {count} failed login attempts. May need to investigate and block IPs if needed. \n")
+                f"IP address '{ip}' was linked to {count} failed login attempts. \n")
+            out.write(
+                "Repeated failed login attempts should be investigated further. \n\n")
+    out.write("")
     out.write("=======================\n\n")
     out.write("Privilege Change Events \n\n")
     out.write("=======================\n\n")

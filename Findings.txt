@@ -19,27 +19,44 @@ Privilege change events: 95
 
 Suspicious User Login Patterns:
 
-User 'root' had 20 failed login attempts. These occurances should be investigated.
-User 'admin' had 23 failed login attempts. These occurances should be investigated.
-User 'tbraxter' had 14 failed login attempts. These occurances should be investigated.
-User 'jtoll' had 19 failed login attempts. These occurances should be investigated.
-User 'jdoe' had 13 failed login attempts. These occurances should be investigated.
+User 'root' had 20 failed login attempts. 
+An excessive number of failed login attempts may be an attempt at malicious activity and should be investigated further. 
+
+User 'admin' had 23 failed login attempts. 
+An excessive number of failed login attempts may be an attempt at malicious activity and should be investigated further. 
+
+User 'tbraxter' had 14 failed login attempts. 
+An excessive number of failed login attempts may be an attempt at malicious activity and should be investigated further. 
+
+User 'jtoll' had 19 failed login attempts. 
+An excessive number of failed login attempts may be an attempt at malicious activity and should be investigated further. 
+
+User 'jdoe' had 13 failed login attempts. 
+An excessive number of failed login attempts may be an attempt at malicious activity and should be investigated further. 
 
 =======================
 
 Suspicious IP activity 
 
-IP address '192.168.1.15 was linked to 32 failed login attempts. May need to investigate and block IPs if needed. 
-IP address '10.0.2.87 was linked to 29 failed login attempts. May need to investigate and block IPs if needed. 
-IP address '192.168.1.17 was linked to 28 failed login attempts. May need to investigate and block IPs if needed. 
-IP address '51.185.130.223 was linked to 80 failed login attempts. May need to investigate and block IPs if needed. 
+IP address '192.168.1.15' was linked to 32 failed login attempts. 
+Repeated failed login attempts should be investigated further. 
+
+IP address '10.0.2.87' was linked to 29 failed login attempts. 
+Repeated failed login attempts should be investigated further. 
+
+IP address '192.168.1.17' was linked to 28 failed login attempts. 
+Repeated failed login attempts should be investigated further. 
+
+IP address '51.185.130.223' was linked to 80 failed login attempts. 
+Repeated failed login attempts should be investigated further. 
+
 =======================
 
 Privilege Change Events 
 
 =======================
 
-User root had 22 Privilege Change events.  The ips that are associated with the event are: {'51.167.98.192', '232.158.179.28', '129.16.101.108', '215.111.196.43', '57.93.189.70', '51.91.61.140', '220.112.12.221', '94.234.64.142', '93.1.127.33', '98.241.7.192', '114.162.125.102', '53.248.13.123', '32.27.135.194', '125.232.21.10', '192.63.184.248', '235.240.89.72', '27.214.198.117', '131.143.28.72', '141.242.251.142', '135.103.53.111', '162.211.191.140'}.
+User root had 22 Privilege Change events.  The ips that are associated with the event are: {'51.167.98.192', '94.234.64.142', '53.248.13.123', '215.111.196.43', '232.158.179.28', '235.240.89.72', '131.143.28.72', '125.232.21.10', '192.63.184.248', '129.16.101.108', '93.1.127.33', '51.91.61.140', '220.112.12.221', '27.214.198.117', '114.162.125.102', '135.103.53.111', '162.211.191.140', '141.242.251.142', '57.93.189.70', '32.27.135.194', '98.241.7.192'}.
 User hmulrooney1 had 1 Privilege Change events.  The ips that are associated with the event are: {'194.77.213.18'}.
 User hgaineofengland3 had 1 Privilege Change events.  The ips that are associated with the event are: {'84.201.139.199'}.
 User cpittam5 had 1 Privilege Change events.  The ips that are associated with the event are: {'79.68.37.38'}.

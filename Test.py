@@ -139,6 +139,50 @@ def detailed_suspicious_entries():
 user_changes, user_ips = detailed_suspicious_entries()
 
 
+def authorization_failed_attempts_log():
+    user_authorization_counts = {}
+    user_authorization_ips = {}
+
+    with open("sample_log.txt", "r", encoding="utf-8") as file:
+        for line in file:
+            entry = parse_log_entry(line)
+
+            if entry is None:
+                continue
+
+            if entry["event"] == "AUTH_FAIL":
+                user = entry["user"]
+                ip = entry["ip"]
+
+                if user not in user_authorization_counts:
+                    user_authorization_counts[user] = 1
+
+                else:
+                    user_authorization_counts[user] += 1
+
+                if user not in user_authorization_ips:
+                    user_authorization_ips[user] = {ip}
+
+                else:
+                    user_authorization_ips[user].add(ip)
+
+    print("")
+    print("==================================" + "\n")
+    print("User Authorization Changes: " + "\n")
+
+    for user, count in user_authorization_counts.items():
+        user_ips = user_authorization_ips[user]
+        ip_str = ", ".join(user_ips)
+
+        print(
+            f"User '{user}' had {count} AUTH_FAILED events. The IP addresses were: {ip_str}.")
+
+    return user_authorization_counts, user_authorization_ips
+
+
+auth_changes, auth_ips = authorization_failed_attempts_log()
+
+
 def main():
     # for now, the main function is empty, but it can be used to call other functions or implement additional logic in the future.
     pass

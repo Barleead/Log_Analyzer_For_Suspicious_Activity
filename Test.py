@@ -233,6 +233,14 @@ with open("Findings.txt", "w", encoding="utf-8") as out:
     for user, count in user_changes.items():
         out.write(
             f"User {user} had {count} Privilege Change events.  The ips that are associated with the event are: {user_ips[user]}." + "\n")
+    out.write("")
+    out.write("=======================\n\n")
+    out.write("User Authorization Changes \n\n")
+    out.write("=======================\n\n")
+    for user, count in auth_changes.items():
+        out.write(
+            f"User {user} had {count} Authorization Change events.  The ips that are associated with the event are: {auth_ips[user]}." + "\n")
+
 
 # if main == "__main__":
 #     main()

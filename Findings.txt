@@ -56,7 +56,7 @@ Privilege Change Events
 
 =======================
 
-User root had 22 Privilege Change events.  The ips that are associated with the event are: {'51.167.98.192', '94.234.64.142', '53.248.13.123', '215.111.196.43', '232.158.179.28', '235.240.89.72', '131.143.28.72', '125.232.21.10', '192.63.184.248', '129.16.101.108', '93.1.127.33', '51.91.61.140', '220.112.12.221', '27.214.198.117', '114.162.125.102', '135.103.53.111', '162.211.191.140', '141.242.251.142', '57.93.189.70', '32.27.135.194', '98.241.7.192'}.
+User root had 22 Privilege Change events.  The ips that are associated with the event are: {'114.162.125.102', '93.1.127.33', '131.143.28.72', '51.167.98.192', '51.91.61.140', '215.111.196.43', '235.240.89.72', '129.16.101.108', '141.242.251.142', '232.158.179.28', '98.241.7.192', '192.63.184.248', '220.112.12.221', '94.234.64.142', '27.214.198.117', '57.93.189.70', '135.103.53.111', '32.27.135.194', '162.211.191.140', '125.232.21.10', '53.248.13.123'}.
 User hmulrooney1 had 1 Privilege Change events.  The ips that are associated with the event are: {'194.77.213.18'}.
 User hgaineofengland3 had 1 Privilege Change events.  The ips that are associated with the event are: {'84.201.139.199'}.
 User cpittam5 had 1 Privilege Change events.  The ips that are associated with the event are: {'79.68.37.38'}.
@@ -129,3 +129,86 @@ User mknappen2z had 1 Privilege Change events.  The ips that are associated with
 User pbemwell30 had 1 Privilege Change events.  The ips that are associated with the event are: {'38.139.13.225'}.
 User dcandey33 had 1 Privilege Change events.  The ips that are associated with the event are: {'49.84.55.19'}.
 User evazquez35 had 1 Privilege Change events.  The ips that are associated with the event are: {'10.0.2.87'}.
+=======================
+
+User Authorization Changes 
+
+=======================
+
+User root had 20 Authorization Change events.  The ips that are associated with the event are: {'192.168.1.15', '10.0.2.87', '192.168.1.17'}.
+User admin had 23 Authorization Change events.  The ips that are associated with the event are: {'192.168.1.15', '10.0.2.87', '192.168.1.17'}.
+User tbraxter had 14 Authorization Change events.  The ips that are associated with the event are: {'192.168.1.15', '10.0.2.87', '192.168.1.17'}.
+User jtoll had 19 Authorization Change events.  The ips that are associated with the event are: {'192.168.1.15', '10.0.2.87', '192.168.1.17'}.
+User jdoe had 13 Authorization Change events.  The ips that are associated with the event are: {'192.168.1.15', '10.0.2.87', '192.168.1.17'}.
+User ONEWHITE1 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User 533427 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User noodle92 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User relic17 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User dili21 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User gewwnz had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User nolejo had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User 5334382 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User 0875660787 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User krepel had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User gewooon had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User 69691234 had 2 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User spencercrand had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User relichunt had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User kreppel22 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User @@@*$)!^ had 2 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User relic35 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User anthonycobos had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User jamieleecoxx had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User 0875660116 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User 2102360 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User jamieleigh121003 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User virginiaynicasio had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User 210233! had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User noodle83 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User krepska had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User anthonycarl had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User dilhole5 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User caligirl30 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User anthonycav112 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User maryborris25@yahoo.com had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User @@@%%%postbus12344 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User noodles04 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User @@@&FEtopIN@&@ had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User dilheen had 2 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User @@@12288264 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User dilhara27 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User jamieleedennis7 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User 69756975 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User qwerty had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User @@@02227831234 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User gewoonmies had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User relic1969 had 2 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User @@@12345678 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User jamieleedielle had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User reliccy had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User noodles20 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User spencergizmo577 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User 696910 had 2 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User virginio94 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User relic18840 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User 5334240 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User nolegranda had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User virginie1 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User caligio1 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User @@@111 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User virginiawild had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User ONETWO had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User COMPUTER22 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User caligirl21 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User caligirl1216 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User kreppach had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User 0875661409 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User 0875660762 had 2 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User 2102331459 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User virginidad_1981 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User gex1999 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User 2102319 had 2 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User monkey had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User jamieleemckay had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User 5334376 had 2 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
+User 6987 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.

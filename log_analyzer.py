@@ -1,7 +1,12 @@
 """Reading sample log parsing, spliting"""
 
+# This program accesses sample_log.txt and analyzes it for suspicious activity. AUTH_FAIL
+# and PRIV_CHANGE are done in detail.
+
 
 def count_log_events():
+    ### Compiles various counts and prints to the terminal.###
+
     failed_count = 0
     total_count = 0
     privileged_count = 0
@@ -34,6 +39,7 @@ print("=============================" + "\n")
 
 
 def parse_log_entry(line):
+    ### his code is to identify parts of the code and remove the user=.. etc. Also, prints to the terminal###
 
     parts = line.strip().split("\t")
     if len(parts) < 5:
@@ -49,6 +55,8 @@ def parse_log_entry(line):
 
 
 def failed_login_patterns():
+    ### Determines the number of auth failed instances that each user has and prints it to the terminal with possible troubleshooting reason.###
+
     failures_by_user = {}
     failures_by_ip = {}
 
@@ -78,7 +86,8 @@ def failed_login_patterns():
     for user, count in failures_by_user.items():
         if count >= 5:
             print(
-                f"User '{user}' had {count} failed logins. These occurances should be investigated.")
+                f"User '{user}' had {count} failed login attempts. ")
+            print("An excessive number of failed login attempts may be an attempt at malicious activity and should be investigated further." + "\n")
 
     print(" ")
     print("Suspicious IP activity \n")
@@ -86,7 +95,9 @@ def failed_login_patterns():
     for ip, count in failures_by_ip.items():
         if count >= 3:
             print(
-                f"IP adddress '{ip}' is associated with {count} failed logins. ")
+                f"IP address '{ip}' is associated with {count} failed login attempts. ")
+            print(
+                "Repeated and excessive failed login attempts should be investigated further. \n\n ")
 
     return failures_by_user, failures_by_ip
 
@@ -98,6 +109,8 @@ print("===============================" + "\n")
 
 
 def detailed_suspicious_entries():
+    ### Loops through the log and tracks each user, how many privilege change requests they have and the IP address associated with the entry. Also prints to the terminal.###
+
     user_permission_changes = {}
     user_permission_ips = {}
 
@@ -140,6 +153,8 @@ user_changes, user_ips = detailed_suspicious_entries()
 
 
 def authorization_failed_attempts_log():
+    ### This function loops through the text file and prints the user, event count and the ip address(es) associated with the attempt.###
+
     user_authorization_counts = {}
     user_authorization_ips = {}
 
@@ -184,13 +199,17 @@ auth_changes, auth_ips = authorization_failed_attempts_log()
 
 
 def main():
-    # for now, the main function is empty, but it can be used to call other functions or implement additional logic in the future.
-    pass
+    count_log_events()
+    parse_log_entry(line)
+    failed_login_patterns()
+    detailed_suspicious_entries()
+    authorization_failed_attempts_log()
 
-# this is my code for Findings.txt file output
+
+# this is my code for sending the report to Findings.txt.
 
 
-with open("Findings.txt", "w", encoding="utf-8") as out:
+with open("findings.txt", "w", encoding="utf-8") as out:
     out.write("Cybersecurity Log Analysis Report\n")
     out.write("prepared by: Barbara Adkins\n")
     out.write("Role: Jr. Security Analyst\n")
@@ -202,25 +221,35 @@ with open("Findings.txt", "w", encoding="utf-8") as out:
     out.write(f"Total log entries: {total_count}\n")
     out.write(f"Failed authentication attempts: {failed_count}\n")
     out.write(f"Privilege change events: {privileged_count}\n\n")
-    out.write("=======================\n\n")
     out.write("Suspicious User Login Patterns:\n\n")
     for user, count in user_failures.items():
         if count >= 5:
-            out.write(f"User '{user}' had {count} failed login attempts. These occurances should be investigated.\n"
-            )
-    out.write("\n")
+            out.write(
+                f"User '{user}' had {count} failed login attempts. \n")
+            out.write(
+                "An excessive number of failed login attempts may be an attempt at malicious activity and should be investigated further. \n\n")
+
     out.write("=======================\n\n")
-    out.write("Suspicious IP activity \n\n")
+    out.write("Suspicious IP activity: \n\n")
     for ip, count in ip_failures.items():
         if count >= 5:
             out.write(
-                f"IP address '{ip} was linked to {count} failed login attempts. May need to investigate and block IPs if needed. \n")
+                f"IP address '{ip}' was linked to {count} failed login attempts. \n")
+            out.write(
+                "Repeated failed login attempts should be investigated further. \n\n")
+    out.write("")
     out.write("=======================\n\n")
-    out.write("Privilege Change Events \n\n")
-    out.write("=======================\n\n")
+    out.write("Privilege Change Events: \n\n")
     for user, count in user_changes.items():
         out.write(
             f"User {user} had {count} Privilege Change events.  The ips that are associated with the event are: {user_ips[user]}." + "\n")
+    out.write("")
+    out.write("=======================\n\n")
+    out.write("User Authorization Changes: \n\n")
+    for user, count in auth_changes.items():
+        out.write(
+            f"User {user} had {count} Authorization Change events.  The ips that are associated with the event are: {auth_ips[user]}." + "\n")
+
 
 # if main == "__main__":
 #     main()

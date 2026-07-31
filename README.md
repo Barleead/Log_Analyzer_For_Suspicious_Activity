@@ -3,7 +3,15 @@
 Analyst: Barbara Adkins
 
 Role: Jr. Security Analyst
+________________________________
 
+________________________________
+
+Need to have these in Readme:
+
+
+
+optional features implemented
 ### Purpose of the project
 
 I was given the task to use Python to build a log analysis tool that would go through log entries and find suspicious events that occured. These would include failed logins (AUTH_FAIL), questionable IP addresses and activiyt related to user privilege.
@@ -43,10 +51,21 @@ After chosing a location for download site. After it has finished downloading. O
 
 After it opens, chose the log_analyzer.py file and then run. The results appear in the terminal and are also saved to the findings.txt file for ease in reviewing.
 
-### Challenges
+## Detections: What they are and what they mean.
 
-###required files
 
-you will need log_analyzer and sample.txt to run the project
+
+### Required Files:
+
+sample.txt
+
+log_analyzer.py
+
+python (installed on your computer. It can be found at python.org)
+
 ###explanation of detections
 ###optional features implemented
+
+### Optional Features
+
+### Challenges and Next Steps

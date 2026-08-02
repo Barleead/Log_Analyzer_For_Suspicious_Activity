@@ -59,6 +59,7 @@ def failed_login_patterns():
 
     failures_by_user = {}
     failures_by_ip = {}
+    suspicious_ip_count = set()
 
     with open("sample_log.txt", "r", encoding="utf-8") as file:
         for entry in file:
@@ -79,7 +80,20 @@ def failed_login_patterns():
                     failures_by_ip[ip] = 1
                 else:
                     failures_by_ip[ip] += 1
+                    suspicious_ip_count.add(ip)
 
+            if entry["event"] == "PRIV_CHANGE":
+                ip = entry["ip"]
+
+                if ip not in suspicious_ip_count:
+                    suspicious_ip_count.add(ip)
+
+    print("===============================" + "\n")
+    print("The total number of unique suspicous IPs from both AUTH_FAIL and PRIV_CHANGE log entries: ",
+          (len(suspicious_ip_count)))
+    print("")
+    print("===============================" + "\n")
+    print(" ")
     print("Suspicious User Login Patterns:")
     print("")
 
@@ -89,8 +103,8 @@ def failed_login_patterns():
                 f"User '{user}' had {count} failed login attempts. ")
             print("An excessive number of failed login attempts may be an attempt at malicious activity and should be investigated further." + "\n")
 
-    print(" ")
     print("Suspicious IP activity \n")
+    print("================================= \n")
 
     for ip, count in failures_by_ip.items():
         if count >= 3:
@@ -99,13 +113,11 @@ def failed_login_patterns():
             print(
                 "Repeated and excessive failed login attempts should be investigated further. \n\n ")
 
-    return failures_by_user, failures_by_ip
+    return failures_by_user, failures_by_ip, suspicious_ip_count
 
 
-user_failures, ip_failures = failed_login_patterns()
-
-print("")
-print("===============================" + "\n")
+user_failures, ip_failures, ip_count = failed_login_patterns()
+sus_ips = len(ip_count)
 
 
 def detailed_suspicious_entries():
@@ -216,11 +228,15 @@ with open("findings.txt", "w", encoding="utf-8") as out:
     out.write("================================\n\n")
     out.write("Log File Verification \n\n")
     out.write(first_line.strip() + "\n\n")
-    out.write("=======================\n\n")
+    out.write("================================\n\n")
     out.write("Summary of Key Statistics \n\n")
     out.write(f"Total log entries: {total_count}\n")
     out.write(f"Failed authentication attempts: {failed_count}\n")
-    out.write(f"Privilege change events: {privileged_count}\n\n")
+    out.write(f"Privilege change events: {privileged_count}\n")
+    out.write(
+        f"The total number of unique suspicous IPs from both AUTH_FAIL and PRIV_CHANGE log entries:  {sus_ips}\n\n")
+
+    out.write("================================\n\n")
     out.write("Suspicious User Login Patterns:\n\n")
     for user, count in user_failures.items():
         if count >= 5:
@@ -229,7 +245,8 @@ with open("findings.txt", "w", encoding="utf-8") as out:
             out.write(
                 "An excessive number of failed login attempts may be an attempt at malicious activity and should be investigated further. \n\n")
 
-    out.write("=======================\n\n")
+    out.write("================================\n\n")
+
     out.write("Suspicious IP activity: \n\n")
     for ip, count in ip_failures.items():
         if count >= 5:
@@ -238,18 +255,18 @@ with open("findings.txt", "w", encoding="utf-8") as out:
             out.write(
                 "Repeated failed login attempts should be investigated further. \n\n")
     out.write("")
-    out.write("=======================\n\n")
+    out.write("================================\n\n")
     out.write("Privilege Change Events: \n\n")
     for user, count in user_changes.items():
         out.write(
             f"User {user} had {count} Privilege Change events.  The ips that are associated with the event are: {user_ips[user]}." + "\n")
     out.write("")
-    out.write("=======================\n\n")
+    out.write("===============================\n\n")
     out.write("User Authorization Changes: \n\n")
     for user, count in auth_changes.items():
         out.write(
             f"User {user} had {count} Authorization Change events.  The ips that are associated with the event are: {auth_ips[user]}." + "\n")
 
 
-# if main == "__main__":
-#     main()
+if main == "__main__":
+    main()

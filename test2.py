@@ -60,7 +60,6 @@ def failed_login_patterns():
     failures_by_user = {}
     failures_by_ip = {}
     suspicious_ip_count = set()
-    ip_fails = set()
 
     with open("sample_log.txt", "r", encoding="utf-8") as file:
         for entry in file:
@@ -81,15 +80,17 @@ def failed_login_patterns():
                     failures_by_ip[ip] = 1
                 else:
                     failures_by_ip[ip] += 1
-                    ip_fails.add(ip)
+                    # suspicious_ip_count.add(ip)
 
             if entry["event"] == "PRIV_CHANGE":
                 ip = entry["ip"]
 
-                if ip not in ip_fails:
-                    suspicious_ip_count.add(ip)
-    print(len(ip_fails))
-    print(f"{ip_fails}")
+                if ip not in suspicious_ip_count:
+                    suspicious_ip_count[ip] = 1
+                else:
+                    suspicious_ip_count[ip] += 1
+
+    print(len(failures_by_ip))
     print(len(suspicious_ip_count))
 
     print("===============================" + "\n")

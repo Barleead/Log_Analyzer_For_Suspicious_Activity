@@ -14,7 +14,13 @@ Summary of Key Statistics
 Total log entries: 1234
 Failed authentication attempts: 169
 Privilege change events: 95
-The total number of unique suspicous IPs from both AUTH_FAIL and PRIV_CHANGE log entries:  92
+================================
+
+The total number of suspicious IPs from both AUTH_FAIL and PRIV_CHANGE log entries: 92
+
+There are 4 IP addresses associated with failed login (AUTH_FAIL) attempts. The IP addresses associated with this are: {'192.168.1.15': 32, '10.0.2.87': 29, '192.168.1.17': 28, '51.185.130.223': 80}
+
+There are 92 pivilege change (PRIV_CHANGE) requests.  The IP addresses associated with this are: {'57.93.189.70', '215.111.196.43', '106.73.155.132', '109.148.70.52', '69.183.67.77', '38.139.13.225', '155.248.115.177', '192.63.184.248', '210.158.177.73', '95.48.83.200', '236.68.243.33', '173.25.107.246', '135.103.53.111', '142.219.254.61', '223.245.96.110', '220.112.12.221', '51.91.61.140', '106.71.242.1', '32.27.135.194', '93.1.127.33', '239.215.194.39', '84.201.139.199', '52.83.125.41', '94.234.64.142', '82.11.147.213', '187.189.169.208', '52.118.195.241', '42.137.188.195', '99.4.203.185', '161.4.56.8', '7.65.86.176', '222.40.229.183', '48.62.183.191', '200.236.162.162', '162.211.191.140', '122.167.220.85', '71.121.191.107', '194.77.213.18', '63.78.204.129', '232.89.201.111', '49.84.55.19', '194.187.18.112', '79.68.37.38', '216.97.254.32', '235.240.89.72', '80.123.211.206', '191.177.215.207', '27.214.198.117', '38.76.148.24', '114.162.125.102', '195.195.1.138', '253.158.27.57', '234.32.53.24', '9.125.71.35', '131.240.211.105', '141.242.251.142', '199.85.211.111', '125.232.21.10', '98.241.7.192', '37.245.29.204', '195.164.21.242', '133.49.133.245', '206.110.221.158', '19.87.183.229', '214.119.198.228', '131.195.12.213', '118.49.218.81', '131.143.28.72', '39.153.38.122', '168.122.146.184', '45.2.44.27', '197.205.155.41', '83.217.213.248', '238.213.65.94', '63.37.91.225', '17.208.115.147', '255.140.35.50', '67.207.108.195', '136.228.120.55', '186.133.36.204', '232.158.179.28', '51.167.98.192', '136.52.247.41', '129.16.101.108', '116.179.99.94', '127.163.4.42', '195.169.120.69', '220.10.116.198', '175.101.151.252', '206.28.51.8', '214.103.94.217', '53.248.13.123'}
 
 ================================
 
@@ -55,7 +61,7 @@ Repeated failed login attempts should be investigated further.
 
 Privilege Change Events: 
 
-User root had 22 Privilege Change events.  The ips that are associated with the event are: {'162.211.191.140', '53.248.13.123', '220.112.12.221', '98.241.7.192', '51.167.98.192', '131.143.28.72', '129.16.101.108', '141.242.251.142', '125.232.21.10', '57.93.189.70', '114.162.125.102', '32.27.135.194', '51.91.61.140', '215.111.196.43', '235.240.89.72', '93.1.127.33', '27.214.198.117', '94.234.64.142', '135.103.53.111', '192.63.184.248', '232.158.179.28'}.
+User root had 22 Privilege Change events.  The ips that are associated with the event are: {'114.162.125.102', '162.211.191.140', '57.93.189.70', '215.111.196.43', '141.242.251.142', '192.63.184.248', '125.232.21.10', '232.158.179.28', '98.241.7.192', '51.167.98.192', '129.16.101.108', '235.240.89.72', '135.103.53.111', '220.112.12.221', '51.91.61.140', '131.143.28.72', '32.27.135.194', '93.1.127.33', '94.234.64.142', '53.248.13.123', '27.214.198.117'}.
 User hmulrooney1 had 1 Privilege Change events.  The ips that are associated with the event are: {'194.77.213.18'}.
 User hgaineofengland3 had 1 Privilege Change events.  The ips that are associated with the event are: {'84.201.139.199'}.
 User cpittam5 had 1 Privilege Change events.  The ips that are associated with the event are: {'79.68.37.38'}.
@@ -132,10 +138,10 @@ User evazquez35 had 1 Privilege Change events.  The ips that are associated with
 
 User Authorization Changes: 
 
-User root had 20 Authorization Change events.  The ips that are associated with the event are: {'10.0.2.87', '192.168.1.15', '192.168.1.17'}.
-User admin had 23 Authorization Change events.  The ips that are associated with the event are: {'10.0.2.87', '192.168.1.15', '192.168.1.17'}.
-User tbraxter had 14 Authorization Change events.  The ips that are associated with the event are: {'10.0.2.87', '192.168.1.15', '192.168.1.17'}.
-User jtoll had 19 Authorization Change events.  The ips that are associated with the event are: {'10.0.2.87', '192.168.1.15', '192.168.1.17'}.
+User root had 20 Authorization Change events.  The ips that are associated with the event are: {'10.0.2.87', '192.168.1.17', '192.168.1.15'}.
+User admin had 23 Authorization Change events.  The ips that are associated with the event are: {'10.0.2.87', '192.168.1.17', '192.168.1.15'}.
+User tbraxter had 14 Authorization Change events.  The ips that are associated with the event are: {'10.0.2.87', '192.168.1.17', '192.168.1.15'}.
+User jtoll had 19 Authorization Change events.  The ips that are associated with the event are: {'10.0.2.87', '192.168.1.17', '192.168.1.15'}.
 User jdoe had 13 Authorization Change events.  The ips that are associated with the event are: {'10.0.2.87', '192.168.1.17', '192.168.1.15'}.
 User ONEWHITE1 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
 User 533427 had 1 Authorization Change events.  The ips that are associated with the event are: {'51.185.130.223'}.
